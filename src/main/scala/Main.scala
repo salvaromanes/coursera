@@ -1,4 +1,4 @@
-import example.Lists
+import example._
 
 object Main extends App {
   val list = List(1,3,2)
@@ -6,15 +6,15 @@ object Main extends App {
 
   println(list + "\n")
 
-  println("sum " + Lists.sumRec(list))
-  println("max " + Lists.maxRec(list))
-  println("Is the list even? " + Lists.evenList(list))
+  println("sum " + test.sumRec(list))
+  println("max " + test.maxRec(list))
+  println("Is the list even? " + test.evenList(list))
 
   println("\n" + list2 + "\n")
 
-  println("sum " + Lists.sumRec(list2))
-  println("max " + Lists.maxRec(list2))
-  println("Is the list even? " + Lists.evenList(list2) + "\n")
+  println("sum " + test.sumRec(list2))
+  println("max " + test.maxRec(list2))
+  println("Is the list even? " + test.evenList(list2) + "\n")
 
 //  val x = 2
 //  val y = 3
@@ -24,5 +24,29 @@ object Main extends App {
 //  println(Lists.func(x)(x))
 //  println(Lists.func(x))
 
+//  var t:Lists.trip = new trip
+//  t.trip()
+//  println(t.toString)
 
+  println(test.getMapValue('a'))
+  println(test.getMapValue('z') + "\n")
+
+  val s = (1 to 6).toSet
+  println(s map (_ + 2))
+
+  val a = "Hello World"
+  println(a filter (c => c.isUpper))
+
+  val b: Int = 2
+  println(b)
+  println(b: Double)
+
+  //Al definir una función dentro de otra es mucho más fácil iterar
+  //ya que no es necesario crear variables locales ni globales que vayan
+  //variando cada iteración
+  def fib(n: Int): Int = {
+    def fibIter(i: Int, a: Int, b: Int): Int =
+      if (i == n) a else fibIter(i+1, b, a+b)
+    fibIter(0, 0, 1)
+  }
 }

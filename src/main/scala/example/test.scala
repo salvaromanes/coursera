@@ -1,6 +1,6 @@
 package example
 
-object Lists {
+object test {
   def sumRec(xs: List[Int]): Int = xs match {
     case head :: tail => sumRec(tail) + head
     case Nil => 0
@@ -38,6 +38,43 @@ object Lists {
       def apply(y: Int): Int = x + y
     }
   }
+
+  val map = Map('a' -> 2, 'b' -> 3, 'd' -> 8)
+
+  def getMapValue(s: Char): String = {
+    map get s match {
+      case Some(v) => "Value " + v
+      case None => "Value not found"
+    }
+  }
+
+  //  class car(people: Int, capacity: Int){
+//    require(capacity >= people, "Car is full")
+//
+//    var c: Int = capacity
+//    var p: Int = people
+//
+//    def getCapacity: Int = {
+//      c
+//    }
+//
+//    def getPeople: Int = {
+//      p
+//    }
+//
+//    override def toString: String = "Capacity = " + c + " and people = " + p
+//  }
+//
+//  class trip(){
+//    var count: Int = 0
+//    var c:car = new car(1, 5)
+//
+//    def trip() = {
+//      count += 1
+//    }
+//
+//    override def toString: String = "There are " + count + " cars in the trip\n"+ c.toString
+//  }
 
 
 }
