@@ -48,6 +48,17 @@ object test {
     }
   }
 
+  def secondGradeOperations(x:Int, y:Int, z:Int): (Double, Double) = {
+    ((-y + Math.sqrt((y * y) - (4 * x * z))/(2 * x),
+      (-y - Math.sqrt((y * y) - (4 * x * z))/(2 * x))))
+  }
+
+  def listTest(xs: List[Int]): Boolean = xs match {
+    case x::y::ys => if (x>=y) listTest(y::ys) else false
+    case _::Nil => true
+    case Nil => throw new RuntimeException("Error: lista vacia")
+  }
+
   //  class car(people: Int, capacity: Int){
 //    require(capacity >= people, "Car is full")
 //

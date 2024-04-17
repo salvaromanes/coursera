@@ -1,52 +1,24 @@
-import example._
+import exercisesLesson1.{CountingChange, ParenthesesBalancing}
+
+import scala.collection.immutable.LazyList.cons
+import scala.language.postfixOps
 
 object Main extends App {
-  val list = List(1,3,2)
-  val list2 = List(2,4,6)
+  private val charListOk = List('(', 'h', 'o', 'l', 'a', ')', '(', ')')
+  private val charListNo = List('(', 'h', 'o', 'l', 'a', ')', '(')
+  private val charhappy = List(':', '-', ')')
 
-  println(list + "\n")
+  private val string = "(if (zero? x) max (/ 1 x))"
+  private val stringToChar = string.toCharArray
 
-  println("sum " + test.sumRec(list))
-  println("max " + test.maxRec(list))
-  println("Is the list even? " + test.evenList(list))
+  println(ParenthesesBalancing.balance(charListOk))
+  println(ParenthesesBalancing.balance(charListNo))
+  println(ParenthesesBalancing.balance(charhappy))
+  println(ParenthesesBalancing.balance(stringToChar.toList))
 
-  println("\n" + list2 + "\n")
+  private val coinsList = List(1, 2)
+  private val money = 4
 
-  println("sum " + test.sumRec(list2))
-  println("max " + test.maxRec(list2))
-  println("Is the list even? " + test.evenList(list2) + "\n")
-
-//  val x = 2
-//  val y = 3
-//
-//  println(Lists.func(x)(y))
-//  println(Lists.func(y)(y))
-//  println(Lists.func(x)(x))
-//  println(Lists.func(x))
-
-//  var t:Lists.trip = new trip
-//  t.trip()
-//  println(t.toString)
-
-  println(test.getMapValue('a'))
-  println(test.getMapValue('z') + "\n")
-
-  val s = (1 to 6).toSet
-  println(s map (_ + 2))
-
-  val a = "Hello World"
-  println(a filter (c => c.isUpper))
-
-  val b: Int = 2
-  println(b)
-  println(b: Double)
-
-  //Al definir una función dentro de otra es mucho más fácil iterar
-  //ya que no es necesario crear variables locales ni globales que vayan
-  //variando cada iteración
-  def fib(n: Int): Int = {
-    def fibIter(i: Int, a: Int, b: Int): Int =
-      if (i == n) a else fibIter(i+1, b, a+b)
-    fibIter(0, 0, 1)
-  }
+  val list = List(1, 2, 3, 4, 5)
+  println(list.mkString(">", ",", "<"))
 }
