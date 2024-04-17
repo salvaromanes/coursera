@@ -1,4 +1,4 @@
-package exercisesLesson1
+package Lesson1.exercises
 
 object CountingChange {
   def countChange(money: Int, coins: List[Int]): Int = {
