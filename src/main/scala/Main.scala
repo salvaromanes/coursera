@@ -1,24 +1,30 @@
-import exercisesLesson1.{CountingChange, ParenthesesBalancing}
+import exercisesLesson1.{CountingChange, ParenthesesBalancing, PascalTriangle}
 
-import scala.collection.immutable.LazyList.cons
 import scala.language.postfixOps
 
 object Main extends App {
-  private val charListOk = List('(', 'h', 'o', 'l', 'a', ')', '(', ')')
-  private val charListNo = List('(', 'h', 'o', 'l', 'a', ')', '(')
-  private val charhappy = List(':', '-', ')')
+  private val string1 = "(if (zero? x) max (/ 1 x))"
+  private val string2 = "I told him (that it’s not (yet) done). (But he was not listening)"
+  private val string3 = ":-)"
+  private val string4 = "())("
 
-  private val string = "(if (zero? x) max (/ 1 x))"
-  private val stringToChar = string.toCharArray
+  println("Parentheses balancing: ")
 
-  println(ParenthesesBalancing.balance(charListOk))
-  println(ParenthesesBalancing.balance(charListNo))
-  println(ParenthesesBalancing.balance(charhappy))
-  println(ParenthesesBalancing.balance(stringToChar.toList))
+  println(ParenthesesBalancing.balance(string1.toCharArray.toList))
+  println(ParenthesesBalancing.balance(string2.toCharArray.toList))
+  println(ParenthesesBalancing.balance(string3.toCharArray.toList))
+  println(ParenthesesBalancing.balance(string4.toCharArray.toList))
+
+  println("\nPascal Triangle: ")
+
+  println(PascalTriangle.pascal(0,2))
+  println(PascalTriangle.pascal(1,2))
+  println(PascalTriangle.pascal(1,3))
 
   private val coinsList = List(1, 2)
   private val money = 4
 
-  val list = List(1, 2, 3, 4, 5)
-  println(list.mkString(">", ",", "<"))
+  println("\nCounting Change: ")
+
+  println(CountingChange.countChange(money, coinsList))
 }
