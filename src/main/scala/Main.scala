@@ -1,28 +1,30 @@
-import example.Lists
+import exercisesLesson1.{CountingChange, ParenthesesBalancing, PascalTriangle}
+
+import scala.language.postfixOps
 
 object Main extends App {
-  val list = List(1,3,2)
-  val list2 = List(2,4,6)
+  private val string1 = "(if (zero? x) max (/ 1 x))"
+  private val string2 = "I told him (that it’s not (yet) done). (But he was not listening)"
+  private val string3 = ":-)"
+  private val string4 = "())("
 
-  println(list + "\n")
+  println("Parentheses balancing: ")
 
-  println("sum " + Lists.sumRec(list))
-  println("max " + Lists.maxRec(list))
-  println("Is the list even? " + Lists.evenList(list))
+  println(ParenthesesBalancing.balance(string1.toCharArray.toList))
+  println(ParenthesesBalancing.balance(string2.toCharArray.toList))
+  println(ParenthesesBalancing.balance(string3.toCharArray.toList))
+  println(ParenthesesBalancing.balance(string4.toCharArray.toList))
 
-  println("\n" + list2 + "\n")
+  println("\nPascal Triangle: ")
 
-  println("sum " + Lists.sumRec(list2))
-  println("max " + Lists.maxRec(list2))
-  println("Is the list even? " + Lists.evenList(list2) + "\n")
+  println(PascalTriangle.pascal(0,2))
+  println(PascalTriangle.pascal(1,2))
+  println(PascalTriangle.pascal(1,3))
 
-//  val x = 2
-//  val y = 3
-//
-//  println(Lists.func(x)(y))
-//  println(Lists.func(y)(y))
-//  println(Lists.func(x)(x))
-//  println(Lists.func(x))
+  private val coinsList = List(1, 2)
+  private val money = 4
 
+  println("\nCounting Change: ")
 
+  println(CountingChange.countChange(money, coinsList))
 }
