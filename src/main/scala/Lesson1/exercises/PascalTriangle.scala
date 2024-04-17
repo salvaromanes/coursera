@@ -1,4 +1,4 @@
-package exercisesLesson1
+package Lesson1.exercises
 
 object PascalTriangle {
   def pascal(c: Int, r: Int): Int = {

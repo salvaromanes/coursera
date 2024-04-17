@@ -1,6 +1,6 @@
-import example._
+package Lesson1.examples
 
-object Main1  {
+object Main extends App {
   val list = List(1,3,2)
   val list2 = List(2,4,6)
 

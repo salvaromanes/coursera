@@ -1,4 +1,4 @@
-package example
+package Lesson1.examples
 
 object exercise {
   def factorial(n: Int): Int = {

@@ -1,4 +1,4 @@
-import exercisesLesson1.{CountingChange, ParenthesesBalancing, PascalTriangle}
+package Lesson1.exercises
 
 import scala.language.postfixOps
 

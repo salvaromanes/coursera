@@ -1,4 +1,4 @@
-package example
+package Lesson1.examples
 
 object test {
   def sumRec(xs: List[Int]): Int = xs match {
