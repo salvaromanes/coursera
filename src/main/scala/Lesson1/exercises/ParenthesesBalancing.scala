@@ -2,6 +2,13 @@ package Lesson1.exercises
 
 import scala.annotation.tailrec
 
+/*
+I can do it also with tow stacks, one of then to the open parentheses and the
+other one to the close parentheses. If the size of each stack are the same,
+it works correctly and the parentheses are balanced (return true),
+in other case, they are not balanced (return false)
+*/
+
 object ParenthesesBalancing {
   def balance(chars: List[Char]): Boolean = lookBalance(chars, 0, 0)
 
