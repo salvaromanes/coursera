@@ -1,5 +1,7 @@
 package Lesson2.exercises
 
+import scala.annotation.tailrec
+
 object SetFunction {
   private type FunSet = Int => Boolean
 
@@ -32,8 +34,9 @@ object SetFunction {
   }
 
   //Exercise 2.2.1
-  def forall(s: FunSet, p: Int => Boolean): Boolean = {
+  private def forall(s: FunSet, p: Int => Boolean): Boolean = {
     //Iterator move between -1000 to 1000
+    @tailrec
     def iter(a: Int): Boolean = {
       if (a > 1000) true                      //Iterator ends and all elements of FunSet pass the predicate p -> return true
       else if (contains(s, a) && !p(a)) false //First element that doesn't pass the predicate p makes iterator ends -> return false
