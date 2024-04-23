@@ -32,7 +32,11 @@ trait Huffman extends HuffmanInterface {
   private def timesHelper(chars: List[Char], list: List[(Char, Int)]): List[(Char, Int)] = chars match {
     case Nil => list
     case x::xs =>
-      if (list.contains(x)) timesHelper(xs, list.updated(x, list.find(_._1 == x).get._2 + 1))
+      if (list.contains(x)) {
+        val (c, w) = list.find(_._1 == x).get
+        var updateList = list.filter(_ != (c, w))
+        timesHelper(xs, updateList :+ (c, w + 1))
+      }
       else timesHelper(xs, list :+ (x, 1))
   }
 
@@ -69,7 +73,8 @@ trait Huffman extends HuffmanInterface {
   }
 
   def combine(trees: List[CodeTree]): List[CodeTree] = trees match {
-    case Nil || _::Nil => trees
+    case Nil => trees
+    case _::Nil => trees
     case x::y::xs => xs :+ Fork(x, y, chars(x) ::: chars(y), weight(x) + weight(y))
   }
 
@@ -179,7 +184,9 @@ trait Huffman extends HuffmanInterface {
     var list: List[Bit] = List()
 
     for (ct <- codeTable) {
-      list = list :+ ct._2
+      for (b <- ct._2) {
+        list = list :+ b
+      }
     }
 
     list
