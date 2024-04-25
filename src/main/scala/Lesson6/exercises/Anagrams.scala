@@ -1,5 +1,7 @@
 package Lesson6.exercises
 
+import Lesson6.exercises.Anagrams.sentenceOccurrences
+
 import scala.annotation.tailrec
 import scala.io.{Codec, Source}
 
@@ -31,7 +33,7 @@ object Anagrams extends AnagramsInterface {
         val (l, o): (Char, Int) = occ(i)
 
         occ = occ.drop(i)
-        occ = occ.updated(l, o + 1)
+        occ = occ :+ (l, o + 1)
 
         countOccurrences(cs, occ)
       } else {
@@ -42,7 +44,7 @@ object Anagrams extends AnagramsInterface {
 
   def sentenceOccurrences(s: Sentence): Occurrences = s match {
     case Nil => List()
-    case x::xs => wordOccurrences(x) :: sentenceOccurrences(xs)
+    case x::xs => wordOccurrences(x).head +: sentenceOccurrences(xs)
   }
 
   lazy val dictionaryByOccurrences: Map[Occurrences, List[Word]] = dictionary.groupBy(wordOccurrences).withDefaultValue(List())
